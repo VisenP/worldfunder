@@ -36,6 +36,9 @@ export const MainPage: FC = () => {
                     type={"text"}
                     onChange={(event) => setName(event.target.value)}
                     value={name}
+                    placeholder={
+                        "Enter project address od ENS domain (e.g. \"worldFunder.eth\", \"0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045\")"
+                    }
                 />
                 <IDKitWidget
                     app_id="app_staging_a4efe90fee5921616b0607ea20918a55"
