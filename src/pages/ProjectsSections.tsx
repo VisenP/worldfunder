@@ -1,7 +1,8 @@
 import { FC, useEffect } from "react";
-import { useReadContract } from "wagmi";
+import { useAccount, useReadContract } from "wagmi";
 
 import { mainContractAbi } from "../abis/contract.ts";
+import { MyProjectSection } from "../components/MyProjectSection.tsx";
 import { ProjectSection } from "../components/ProjectSection.tsx";
 
 export type Project = {
@@ -15,6 +16,8 @@ export type Project = {
 };
 
 export const ProjectsSection: FC = () => {
+    const { address } = useAccount();
+
     const {
         data: projects,
         status,
@@ -33,12 +36,27 @@ export const ProjectsSection: FC = () => {
     }, [status, projects, error]);
 
     return (
-        <div className={"w-full grid grid-cols-3 gap-5 mt-5"}>
-            {((projects as Project[]) ?? [])
-                .sort((a, b) => Number(b.votes) - Number(a.votes))
-                .map((project) => (
-                    <ProjectSection project={project} key={project.addr} />
-                ))}
+        <div className={"w-full flex flex-col gap-5"}>
+            <div className={"w-full grid grid-cols-3 gap-5 mt-5"}>
+                {((projects as Project[]) ?? [])
+                    .sort((a, b) => Number(b.votes) - Number(a.votes))
+                    .filter((p) => p.name !== "cigan")
+                    .map((project) => (
+                        <ProjectSection project={project} key={project.addr} />
+                    ))}
+            </div>
+            <span className={"self-start text-2xl font-bold mt-20"}>
+                My project:{" "}
+            </span>
+            {projects && address ? (
+                <MyProjectSection
+                    project={(projects as Project[]).find(
+                        (p) => p.addr === address
+                    )}
+                ></MyProjectSection>
+            ) : (
+                <span></span>
+            )}
         </div>
     );
 };

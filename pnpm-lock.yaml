@@ -20,6 +20,9 @@ dependencies:
   eslint-plugin-react:
     specifier: ^7.34.1
     version: 7.34.1(eslint@8.57.0)
+  ethers:
+    specifier: v5
+    version: 5.7.2
   react:
     specifier: ^18.2.0
     version: 18.2.0

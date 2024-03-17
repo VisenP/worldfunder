@@ -42,7 +42,10 @@ export const FunderSection: FC<Properties> = ({ funder }) => {
                 <span>{name ? name : funder.addr}</span>
             </div>
             <span>
-                {(funder.totalValue / 1_000_000_000_000_000_000n).toString()}{" "}
+                {(
+                    Number(funder.totalValue) /
+                    Number(1_000_000_000_000_000_000)
+                ).toString()}{" "}
                 ETH
             </span>
         </div>
