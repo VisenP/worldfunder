@@ -29,6 +29,9 @@ dependencies:
   react-icons:
     specifier: ^5.0.1
     version: 5.0.1(react@18.2.0)
+  truncate-eth-address:
+    specifier: ^1.0.2
+    version: 1.0.2
   viem:
     specifier: 2.x
     version: 2.8.9(typescript@5.4.2)
@@ -10808,6 +10811,10 @@ packages:
 
   /tr46@0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
+    dev: false
+
+  /truncate-eth-address@1.0.2:
+    resolution: {integrity: sha512-MLGSzEIDam9XdBQejtCpQfdbgXfYTEkQseqpz+Pcqu6SEvvVC4mYniWFp4n8VG+KOi6jYVtUfA6cqWecSvS3rw==}
     dev: false
 
   /ts-api-utils@1.3.0(typescript@5.4.2):

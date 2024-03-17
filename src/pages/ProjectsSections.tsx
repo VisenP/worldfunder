@@ -5,7 +5,7 @@ import { mainContractAbi } from "../abis/contract.ts";
 import { ProjectSection } from "../components/ProjectSection.tsx";
 
 export type Project = {
-    id: string;
+    addr: string;
     name: string;
     description: string;
     img: string;
@@ -35,9 +35,9 @@ export const ProjectsSection: FC = () => {
     return (
         <div className={"w-full grid grid-cols-3 gap-5 mt-5"}>
             {((projects as Project[]) ?? [])
-                .sort((a, b) => b.votes - a.votes)
+                .sort((a, b) => Number(b.votes) - Number(a.votes))
                 .map((project) => (
-                    <ProjectSection project={project} key={project.id} />
+                    <ProjectSection project={project} key={project.addr} />
                 ))}
         </div>
     );

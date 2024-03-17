@@ -1,4 +1,6 @@
 import { FC } from "react";
+import { FiCopy } from "react-icons/fi";
+import truncateEthAddress from "truncate-eth-address";
 
 import { Project } from "../pages/ProjectsSections.tsx";
 
@@ -17,7 +19,7 @@ export const ProjectSection: FC<Properties> = ({ project }) => {
                 <img
                     src={project.img}
                     className={
-                        "w-[256x] h-[256px] self-center rounded-t-xl -mt-5"
+                        "w-[256] p-10 h-[256px] self-center rounded-t-xl -mt-5"
                     }
                     alt={""}
                 />
@@ -31,6 +33,13 @@ export const ProjectSection: FC<Properties> = ({ project }) => {
                     <span className={"text-5xl"}>{project.name}</span>
                     <div>{project.votes.toString()}</div>
                 </div>
+            </div>
+            <div className={"flex justify-center gap-2 items-center"}>
+                <span>{truncateEthAddress(project.addr)}</span>
+                <FiCopy
+                    onClick={() => navigator.clipboard.writeText(project.addr)}
+                    className={"cursor-pointer hover:text-sky-800"}
+                />
             </div>
             <div className={"flex flex-col px-5 gap-5 py-5"}>
                 <span>{project.description}</span>
