@@ -15,7 +15,6 @@ export const mainContractAbi = [
     { inputs: [], name: "InvalidNullifier", type: "error" },
     {
         inputs: [
-            { internalType: "string", name: "id", type: "string" },
             { internalType: "string", name: "name", type: "string" },
             { internalType: "string", name: "description", type: "string" },
             { internalType: "string", name: "img", type: "string" },
@@ -35,9 +34,37 @@ export const mainContractAbi = [
         type: "function",
     },
     {
+        inputs: [{ internalType: "address", name: "", type: "address" }],
+        name: "funderIndexesByAddress",
+        outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
         inputs: [],
         name: "getBalance",
         outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [],
+        name: "getFunders",
+        outputs: [
+            {
+                components: [
+                    { internalType: "address", name: "addr", type: "address" },
+                    {
+                        internalType: "uint256",
+                        name: "totalValue",
+                        type: "uint256",
+                    },
+                ],
+                internalType: "struct Contract.Funder[]",
+                name: "",
+                type: "tuple[]",
+            },
+        ],
         stateMutability: "view",
         type: "function",
     },
@@ -47,7 +74,11 @@ export const mainContractAbi = [
         outputs: [
             {
                 components: [
-                    { internalType: "string", name: "id", type: "string" },
+                    {
+                        internalType: "address payable",
+                        name: "addr",
+                        type: "address",
+                    },
                     { internalType: "string", name: "name", type: "string" },
                     {
                         internalType: "string",
@@ -86,10 +117,10 @@ export const mainContractAbi = [
         type: "function",
     },
     {
-        inputs: [{ internalType: "string", name: "", type: "string" }],
-        name: "ids",
-        outputs: [{ internalType: "address", name: "", type: "address" }],
-        stateMutability: "view",
+        inputs: [],
+        name: "payout",
+        outputs: [],
+        stateMutability: "nonpayable",
         type: "function",
     },
     {
@@ -125,4 +156,5 @@ export const mainContractAbi = [
         stateMutability: "view",
         type: "function",
     },
+    { stateMutability: "payable", type: "receive" },
 ];

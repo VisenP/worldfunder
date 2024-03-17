@@ -23,7 +23,7 @@ export const ProjectsSection: FC = () => {
         functionName: "getProjects",
         args: [],
         abi: mainContractAbi,
-        address: "0x7d6d18aa639d7a21a0a45350ed0539e9dc9cd262",
+        address: "0xb100a2d5097aabfd9ce73e87b665e7b0d47f9c62",
     });
 
     useEffect(() => {

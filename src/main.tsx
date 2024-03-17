@@ -23,7 +23,7 @@ const config = createConfig(
                 rpcUrls: {
                     default: {
                         http: [
-                            "https://rpc.tenderly.co/fork/194b3ca2-bc57-448b-99cc-74bd75c3ba5e",
+                            "https://rpc.tenderly.co/fork/aa8bb823-857e-43ed-80bb-b63fcee5311f",
                         ],
                     },
                 },
@@ -31,10 +31,13 @@ const config = createConfig(
         ],
         transports: {
             [optimism.id]: http(
-                "https://rpc.tenderly.co/fork/194b3ca2-bc57-448b-99cc-74bd75c3ba5e"
+                "https://rpc.tenderly.co/fork/aa8bb823-857e-43ed-80bb-b63fcee5311f"
             ),
             [mainnet.id]: http(),
         },
+
+        walletConnectProjectId: "b48c8470ff7f2dd5d7361057ba6dc160",
+
         // Required App Info
         appName: "Testapp",
     })
